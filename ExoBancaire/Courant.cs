@@ -8,9 +8,25 @@ namespace ExoBancaire
 {
     class Courant
     {
-        public string Numero { get; set; }
-
+        #region Champs
         private double _solde;
+        private double _ligneDeCredit;
+        private Personne _titulaire;
+        private string _numero;
+        #endregion
+
+        #region Propriétes
+        public string Numero {
+            get 
+            { 
+                return _numero; 
+            }
+            set 
+            { 
+                // couche de sécurité: vérifier si la chaine n'est pas vide et n'a pas de White Space
+                if (!string.IsNullOrWhiteSpace(value)) _numero = value; 
+            } 
+        } 
         public double Solde 
         {
             get 
@@ -19,12 +35,11 @@ namespace ExoBancaire
             }
 
             private set 
-            { 
-                _solde = value; 
+            {
+                if (value >= -LigneDeCredit) _solde = value; 
             }
         }
 
-        private double _ligneDeCredit;
         public double LigneDeCredit
         {
             get 
@@ -34,23 +49,36 @@ namespace ExoBancaire
 
             set
             {
-                if (value >= 0) _ligneDeCredit = value;
+                if (value >= 0 && value >= -Solde) _ligneDeCredit = value;
             }
         }
 
-        public Personne Titulaire { get; set; }
-
-        public void Retrait(double Montant)
-        {
-            if (Solde - Montant >= -LigneDeCredit)
+        public Personne Titulaire {
+            get { return _titulaire; }
+            set
             {
-                Solde = Solde - Montant;
+                // on vérifie si le titulaire qu'on passe au compte existe, c'est-à-dire n'est pas null
+                if (value != null) _titulaire = value;
+            }
+        }
+        #endregion
+
+        #region Méthodes
+        public void Retrait(double montant)
+        {
+            if (montant > 0 && (Solde - montant >= -LigneDeCredit))
+            {
+                Solde = Solde - montant;
             }
         }
 
-        public void Depot(double Montant) 
+        public void Depot(double montant) 
         {
-            Solde = Solde + Montant;
+            if (montant > 0)
+            {
+                Solde = Solde + montant;
+            }
         }
+        #endregion
     }
 }
