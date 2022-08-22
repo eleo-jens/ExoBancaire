@@ -86,13 +86,12 @@ namespace ExoBancaire
             }
             c1_sam = compte_client; // on refait un lien entre c1_sam et l'objet compte_client
 
+            double somme;
+            somme = c1_sam + c1_bruce;
+            Console.WriteLine(somme);
 
-
-
-
-
-
-
+            Console.WriteLine(abb.AvoirDesComptes(titulaire1));
+            Console.WriteLine(abb.AvoirDesComptes(titulaire2));
         }
     }
 }

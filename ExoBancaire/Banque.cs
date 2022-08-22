@@ -40,5 +40,28 @@ namespace ExoBancaire
                 _comptes.Remove(numero);
             }
         }
+
+        public double AvoirDesComptes(Personne titulaire)
+        {
+            double somme = 0;
+            foreach (KeyValuePair<string, Courant> kvp in _comptes)
+            {
+                Courant compte = kvp.Value;
+                if (titulaire == compte.Titulaire)
+                {
+                    somme += compte;
+                }
+            }
+            return somme;
+
+            // autre facon d'écrire moins précise, var à éviter
+            //foreach (var compte in _comptes.Values)
+            //{
+            //    if (titulaire == compte.Titulaire)
+            //    {
+            //        somme += compte;
+            //    }
+            //}
+        }
     }
 }
