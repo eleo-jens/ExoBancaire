@@ -53,10 +53,38 @@ namespace ExoBancaire
 
             Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Banque ING = new Banque();
-            ING.Ajouter(c1_sam);
-            ING.Ajouter(c1_bruce);
-            ING.Supprimer(c1_sam.Numero);
+            Banque abb = new Banque();
+            abb.Name = "Aux bons bénéfices";
+            abb.Ajouter(c1_sam);
+            abb.Ajouter(c1_bruce);
+
+            Courant compte_client = abb["BE12 4568 7899 1023"];
+            if (compte_client != null)
+            {
+                compte_client.Depot(5000);
+                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            }
+            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+
+            abb.Supprimer(c1_bruce.Numero);
+
+            compte_client = abb["BE12 4568 7899 1023"];
+            if (compte_client != null)
+            {
+                compte_client.Depot(5000);
+                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            }
+            // ici le compte n'existe plus dans la banque, mais existe encore à travers la variable c1_bruce de la classe courant
+            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+
+            compte_client = abb[c1_sam.Numero];
+            c1_sam = null;
+            if (compte_client != null)
+            {
+                compte_client.Depot(5000);
+                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            }
+            c1_sam = compte_client; // on refait un lien entre c1_sam et l'objet compte_client
 
 
 
