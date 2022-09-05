@@ -10,21 +10,21 @@ namespace ExoBancaire
     {
         public string Name { get; set; }
 
-        private Dictionary<string, Courant> _comptes = new Dictionary<String, Courant>();
+        private Dictionary<string, Compte> _comptes = new Dictionary<String, Compte>();
 
         // this représente instance de la classe Banque: ici c'est l'indexer de notre classe banque
-        public Courant this[string numero]
+        public Compte this[string numero]
         {
             get
             {
-                Courant c = null;
+                Compte c = null;
                 _comptes.TryGetValue(numero, out c);
                 return c; 
             }
         }
 
         // plus facile que de mettre des méthodes que de mettre en place un set dans l'indexer
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             // ou utiliser TryAdd
             if (compte != null && !_comptes.ContainsKey(compte.Numero))
@@ -44,9 +44,9 @@ namespace ExoBancaire
         public double AvoirDesComptes(Personne titulaire)
         {
             double somme = 0;
-            foreach (KeyValuePair<string, Courant> kvp in _comptes)
+            foreach (KeyValuePair<string, Compte> kvp in _comptes)
             {
-                Courant compte = kvp.Value;
+                Compte compte = kvp.Value;
                 if (titulaire == compte.Titulaire)
                 {
                     somme += compte;
