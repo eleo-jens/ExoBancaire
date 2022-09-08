@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExoBancaire
 {
-    internal abstract class Compte
+    internal abstract class Compte : IBanker, ICustomer
     {
         #region Champs
         private Personne _titulaire;

@@ -58,7 +58,7 @@ namespace ExoBancaire
             abb.Ajouter(c1_sam);
             abb.Ajouter(c1_bruce);
 
-            Courant compte_client = abb["BE12 4568 7899 1023"];
+            Courant compte_client = (Courant)abb["BE12 4568 7899 1023"];
             if (compte_client != null)
             {
                 compte_client.Depot(5000);
@@ -68,7 +68,7 @@ namespace ExoBancaire
 
             abb.Supprimer(c1_bruce.Numero);
 
-            compte_client = abb["BE12 4568 7899 1023"];
+            compte_client = (Courant)abb["BE12 4568 7899 1023"];
             if (compte_client != null)
             {
                 compte_client.Depot(5000);
@@ -77,7 +77,7 @@ namespace ExoBancaire
             // ici le compte n'existe plus dans la banque, mais existe encore à travers la variable c1_bruce de la classe courant
             Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            compte_client = abb[c1_sam.Numero];
+            compte_client = (Courant)abb[c1_sam.Numero];
             c1_sam = null;
             if (compte_client != null)
             {
@@ -92,6 +92,15 @@ namespace ExoBancaire
 
             Console.WriteLine(abb.AvoirDesComptes(titulaire1));
             Console.WriteLine(abb.AvoirDesComptes(titulaire2));
+
+            //COMPLETER AVEC LES DEMOS
+
+            c1_sam.AppliquerInteret();
+            c1_bruce.AppliquerInteret();
+
+            ICustomer client_sam = c1_sam;
+
+
         }
     }
 }
