@@ -6,101 +6,308 @@ namespace ExoBancaire
     {
         static void Main(string[] args)
         {
-            Personne titulaire1 = new Personne();
-            titulaire1.Nom = "Legrain";
-            titulaire1.Prenom = "Samuel";
-            titulaire1.DateNaissance = new DateTime(1987, 9, 27);
+            //#region Avant constructeurs
+            ////Personne titulaire1 = new Personne();
+            ////titulaire1.Nom = "Legrain";
+            ////titulaire1.Prenom = "Samuel";
+            ////titulaire1.DateNaissance = new DateTime(1987, 9, 27);
 
-            Personne titulaire2 = new Personne();
-            titulaire2.Nom = "   Willis     ";
-            titulaire2.Prenom = "Bruce";
-            titulaire2.DateNaissance = new DateTime(1987, 9, 27);
+            ////Personne titulaire2 = new Personne();
+            ////titulaire2.Nom = "   Willis     ";
+            ////titulaire2.Prenom = "Bruce";
+            ////titulaire2.DateNaissance = new DateTime(1987, 9, 27);
 
-            Courant c1_sam = new Courant();
-            c1_sam.Titulaire = titulaire1;
-            c1_sam.Numero = "BE52 5647 8953 5642";
-            c1_sam.LigneDeCredit = 200;
+            ////Courant c1_sam = new Courant();
+            ////c1_sam.Titulaire = titulaire1;
+            ////c1_sam.Numero = "BE52 5647 8953 5642";
+            ////c1_sam.LigneDeCredit = 200;
 
-            Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
+            ////Courant c1_bruce = new Courant();
+            ////c1_bruce.Titulaire = titulaire2;
+            ////c1_bruce.Numero = "BE12 4568 7899 1023";
+            ////c1_bruce.LigneDeCredit = 500;
+            ////c1_bruce.LigneDeCredit = 1;
+            //#endregion
 
-            c1_sam.Depot(1_000_000);
+            //Personne titulaire1 = new Personne("Legrain", "Samuel", new DateTime(1987, 9, 27));
+            //Personne titulaire2 = new Personne("Willis", "Bruce", new DateTime(1987, 9, 27));
+            //Courant c1_sam = new Courant("BE52 5647 8953 5642", titulaire1, 50_000, 200);
+            //Courant c1_bruce = new Courant("BE12 4568 7899 1023", titulaire2, 500, 50);
+            //Courant c2_bruce = new Courant("BE00 0000 0000 0001", titulaire2, 500, -50);
+            //Courant c3_bruce = new Courant("BE00 0000 0000 0002", titulaire2, 5, 500);
+            //Courant c4_bruce = new Courant("BE00 0000 0000 0003", titulaire2, 0, 5);
+            //Epargne e1_sam = new Epargne("BE10 0000 0000 0003", titulaire1, 5);
 
-            Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
+            //Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
 
-            c1_sam.Retrait(500_000);
+            //c1_sam.Depot(1_000_000);
 
-            Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
+            //Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
 
-            Courant c1_bruce = new Courant();
-            c1_bruce.Titulaire = titulaire2;
-            c1_bruce.Numero = "BE12 4568 7899 1023";
+            //c1_sam.Retrait(500_000);
 
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+            //Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom} né le {c1_sam.Titulaire.DateNaissance} ayant pour numéro de compte {c1_sam.Numero}, a pour le solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.\n");
 
-            c1_bruce.Retrait(1);
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+            //c1_bruce.Retrait(1);
 
-            c1_bruce.LigneDeCredit = 500;
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            c1_bruce.Retrait(1);
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+            //c1_bruce.Retrait(1);
 
-            c1_bruce.LigneDeCredit = 1;
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
 
-            Banque abb = new Banque();
-            abb.Name = "Aux bons bénéfices";
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+
+            //Banque abb = new Banque("Aux bons bénéfices");
+            //abb.Ajouter(c1_sam);
+            //abb.Ajouter(c1_bruce);
+            //abb.Ajouter(c2_bruce);
+            //abb.Ajouter(c3_bruce);
+            //abb.Ajouter(c4_bruce);
+            //abb.Ajouter(e1_sam);
+
+            //Courant compte_client = (Courant)abb["BE12 4568 7899 1023"];
+            //if (compte_client != null)
+            //{
+            //    compte_client.Depot(5000);
+            //    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            //}
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+
+            //abb.Supprimer(c1_bruce.Numero);
+
+            //compte_client = (Courant)abb["BE12 4568 7899 1023"];
+            //if (compte_client != null)
+            //{
+            //    compte_client.Depot(5000);
+            //    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            //}
+            //// ici le compte n'existe plus dans la banque, mais existe encore à travers la variable c1_bruce de la classe courant
+            //Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+
+            //compte_client = (Courant)abb[c1_sam.Numero];
+            //c1_sam = null;
+            //if (compte_client != null)
+            //{
+            //    compte_client.Depot(5000);
+            //    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
+            //}
+            //c1_sam = compte_client; // on refait un lien entre c1_sam et l'objet compte_client
+
+            //double somme;
+            //somme = c1_sam + c1_bruce;
+            //Console.WriteLine(somme);
+
+            //Console.WriteLine(abb.AvoirDesComptes(titulaire1));
+            //Console.WriteLine(abb.AvoirDesComptes(titulaire2));
+
+            ////COMPLETER AVEC LES DEMOS
+
+            //c1_sam.AppliquerInteret();
+            //c1_bruce.AppliquerInteret();
+
+            //ICustomer client_sam = c1_sam;
+
+
+            #region Tests avant opérateurs
+            /*
+                Personne titulaire1 = new Personne();
+                titulaire1.Nom = "Legrain";
+                titulaire1.Prenom = "Samuel";
+                titulaire1.DateNaissance = new DateTime(1987,9,27);
+                Personne titulaire2 = new Personne();
+                titulaire2.Nom = "Willis";
+                titulaire2.Prenom = "Bruce";
+                titulaire2.DateNaissance = new DateTime(1987, 9, 27);
+                Courant c1_sam = new Courant();
+                c1_sam.Titulaire = titulaire1;
+                c1_sam.Numero = "BE55 3820 1900 7412";
+                c1_sam.LigneDeCredit = 200;
+                Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom}, né le {c1_sam.Titulaire.DateNaissance.ToShortDateString()}, ayant pour numéro {c1_sam.Numero}, a pour solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.");
+                c1_sam.Depot(1_000_000);
+                Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom}, né le {c1_sam.Titulaire.DateNaissance.ToShortDateString()}, ayant pour numéro {c1_sam.Numero}, a pour solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.");
+                c1_sam.Retrait(500_000);
+                Console.WriteLine($"Le compte bancaire de {c1_sam.Titulaire.Nom} {c1_sam.Titulaire.Prenom}, né le {c1_sam.Titulaire.DateNaissance.ToShortDateString()}, ayant pour numéro {c1_sam.Numero}, a pour solde {c1_sam.Solde}. Il peut atteindre {c1_sam.LigneDeCredit} en dessous de 0.");
+                Courant c1_bruce = new Courant();
+                c1_bruce.Titulaire = titulaire2;
+                c1_bruce.Numero = "BE00 0000 0000 0001";
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                c1_bruce.Retrait(1);
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                c1_bruce.LigneDeCredit = 500;
+                c1_bruce.Retrait(1);
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                c1_bruce.LigneDeCredit = 1;
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                Banque abb = new Banque();
+                abb.Nom = "Aux bons bénéfices";
+                abb.Ajouter(c1_sam);
+                abb.Ajouter(c1_bruce);
+                Courant compte_client = (Courant)abb["BE00 0000 0000 0001"];
+                if (compte_client != null)
+                {
+                    compte_client.Depot(5000);
+                    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom}, né le {compte_client.Titulaire.DateNaissance}, ayant pour numéro {compte_client.Numero}, a pour solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.");
+                }
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                abb.Supprimer(c1_bruce.Numero);
+                compte_client = (Courant)abb["BE00 0000 0000 0001"];
+                if (compte_client != null)
+                {
+                    compte_client.Depot(5000);
+                    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom}, né le {compte_client.Titulaire.DateNaissance}, ayant pour numéro {compte_client.Numero}, a pour solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.");
+                }
+                Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom}, né le {c1_bruce.Titulaire.DateNaissance}, ayant pour numéro {c1_bruce.Numero}, a pour solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.");
+                compte_client = (Courant)abb[c1_sam.Numero];
+                c1_sam = null;
+                if (compte_client != null)
+                {
+                    compte_client.Depot(5000);
+                    Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom}, né le {compte_client.Titulaire.DateNaissance}, ayant pour numéro {compte_client.Numero}, a pour solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.");
+                }
+                c1_sam = compte_client;
+                */
+            #endregion
+
+            #region Avant Constructeurs
+            //Personne titulaire1 = new Personne();
+            //titulaire1.Nom = "Legrain";
+            //titulaire1.Prenom = "Samuel";
+            //titulaire1.DateNaissance = new DateTime(1987, 9, 27);
+
+            //Personne titulaire2 = new Personne();
+            //titulaire2.Nom = "Willis";
+            //titulaire2.Prenom = "Bruce";
+            //titulaire2.DateNaissance = new DateTime(1987, 9, 27);
+
+            //Courant c1_sam = new Courant();
+            //c1_sam.Titulaire = titulaire1;
+            //c1_sam.Numero = "BE55 3820 1900 7412";
+            //c1_sam.LigneDeCredit = 200;
+            //c1_sam.Depot(50_000);
+
+            //Courant c1_bruce = new Courant();
+            //c1_bruce.Titulaire = titulaire2;
+            //c1_bruce.Numero = "BE00 0000 0000 0001";
+            //c1_bruce.LigneDeCredit = 500;
+            //c1_bruce.Depot(50);
+
+            //Courant c2_bruce = new Courant();
+            //c2_bruce.Titulaire = titulaire2;
+            //c2_bruce.Numero = "BE00 0000 0000 0002";
+            //c2_bruce.LigneDeCredit = 50;
+            //c2_bruce.Retrait(50);
+
+            //Courant c3_bruce = new Courant();
+            //c3_bruce.Titulaire = titulaire2;
+            //c3_bruce.Numero = "BE00 0000 0000 0003";
+            //c3_bruce.LigneDeCredit = 5;
+            //c3_bruce.Depot(500);
+
+            //Courant c4_bruce = new Courant();
+            //c4_bruce.Titulaire = titulaire2;
+            //c4_bruce.Numero = "BE00 0000 0000 0004";
+            //c4_bruce.LigneDeCredit = 0;
+            //c4_bruce.Depot(5);
+
+            //Epargne e1_sam = new Epargne();
+            //e1_sam.Titulaire = titulaire1;
+            //e1_sam.Numero = "BE10 0000 0000 0001";
+            //e1_sam.Depot(5);
+            #endregion
+
+            Personne titulaire1 = new Personne("Legrain", "Samuel", new DateTime(1987, 9, 27));
+            Personne titulaire2 = new Personne("Willis", "Bruce", new DateTime(1987, 9, 27));
+            Courant c1_sam = new Courant("BE55 3820 1900 7412", titulaire1, 200, 50_000);
+            Courant c1_bruce = new Courant("BE00 0000 0000 0001", titulaire2, 500, 50);
+            Courant c2_bruce = new Courant("BE00 0000 0000 0002", titulaire2, 50, -50);
+            Courant c3_bruce = new Courant("BE00 0000 0000 0003", titulaire2, 5, 500);
+            Courant c4_bruce = new Courant("BE00 0000 0000 0004", titulaire2, 0, 5);
+
+
+            Epargne e1_sam = new Epargne("BE10 0000 0000 0001", titulaire1, 5);
+
+            Console.WriteLine($"Le compte épargne {e1_sam.Numero}, a pour solde : {e1_sam.Solde}, avec pour dernier retrait {e1_sam.DateDernierRetrait}");
+            e1_sam.Retrait(50);
+            Console.WriteLine($"Le compte épargne {e1_sam.Numero}, a pour solde : {e1_sam.Solde}, avec pour dernier retrait {e1_sam.DateDernierRetrait}");
+            e1_sam.Retrait(0.5);
+            Console.WriteLine($"Le compte épargne {e1_sam.Numero}, a pour solde : {e1_sam.Solde}, avec pour dernier retrait {e1_sam.DateDernierRetrait}");
+
+            Banque abb = new Banque("Aux bons bénéfices");
             abb.Ajouter(c1_sam);
             abb.Ajouter(c1_bruce);
+            abb.Ajouter(c2_bruce);
+            abb.Ajouter(c3_bruce);
+            abb.Ajouter(c4_bruce);
+            abb.Ajouter(e1_sam);
 
-            Courant compte_client = (Courant)abb["BE12 4568 7899 1023"];
-            if (compte_client != null)
-            {
-                compte_client.Depot(5000);
-                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
-            }
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+            //Console.WriteLine($"Les avoirs de {titulaire1.Nom} {titulaire1.Prenom} sont de {abb.AvoirsDesComptes(titulaire1)} Euro!");
+            //Console.WriteLine($"Les avoirs de {titulaire2.Nom} {titulaire2.Prenom} sont de {abb.AvoirsDesComptes(titulaire2)} Euro!");
 
-            abb.Supprimer(c1_bruce.Numero);
+            Console.WriteLine("Veuillez indiquer le nom :");
+            string tit_nom = Console.ReadLine();
 
-            compte_client = (Courant)abb["BE12 4568 7899 1023"];
-            if (compte_client != null)
-            {
-                compte_client.Depot(5000);
-                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
-            }
-            // ici le compte n'existe plus dans la banque, mais existe encore à travers la variable c1_bruce de la classe courant
-            Console.WriteLine($"Le compte bancaire de {c1_bruce.Titulaire.Nom} {c1_bruce.Titulaire.Prenom} né le {c1_bruce.Titulaire.DateNaissance} ayant pour numéro de compte {c1_bruce.Numero}, a pour le solde {c1_bruce.Solde}. Il peut atteindre {c1_bruce.LigneDeCredit} en dessous de 0.\n");
+            Console.WriteLine("Veuillez indiquer le prénom :");
+            string tit_prenom = Console.ReadLine();
 
-            compte_client = (Courant)abb[c1_sam.Numero];
-            c1_sam = null;
-            if (compte_client != null)
-            {
-                compte_client.Depot(5000);
-                Console.WriteLine($"Le compte bancaire de {compte_client.Titulaire.Nom} {compte_client.Titulaire.Prenom} né le {compte_client.Titulaire.DateNaissance} ayant pour numéro de compte {compte_client.Numero}, a pour le solde {compte_client.Solde}. Il peut atteindre {compte_client.LigneDeCredit} en dessous de 0.\n");
-            }
-            c1_sam = compte_client; // on refait un lien entre c1_sam et l'objet compte_client
+            Console.WriteLine("Veuillez indiquer la date de naissance :");
+            DateTime tit_dateNaissance = DateTime.Parse(Console.ReadLine());
+            Personne titulaire = new Personne(tit_nom, tit_prenom, tit_dateNaissance);
 
-            double somme;
-            somme = c1_sam + c1_bruce;
-            Console.WriteLine(somme);
-
-            Console.WriteLine(abb.AvoirDesComptes(titulaire1));
-            Console.WriteLine(abb.AvoirDesComptes(titulaire2));
-
-            //COMPLETER AVEC LES DEMOS
+            Console.WriteLine($"Les avoirs de {titulaire.Nom} {titulaire.Prenom} sont de {abb.AvoirsDesComptes(titulaire)} Euro!");
 
             c1_sam.AppliquerInteret();
+            e1_sam.AppliquerInteret();
             c1_bruce.AppliquerInteret();
+            c2_bruce.AppliquerInteret();
+            c3_bruce.AppliquerInteret();
+            c4_bruce.AppliquerInteret();
+
+            Console.WriteLine($"Les avoirs de {titulaire.Nom} {titulaire.Prenom} sont de {abb.AvoirsDesComptes(titulaire)} Euro!");
 
             ICustomer client_sam = c1_sam;
+            Console.WriteLine($"Le client n'a accès qu'aux fonctions de Depot(), Retrait() et son Solde ({client_sam.Solde})");
+            client_sam.Depot(500);
+            Console.WriteLine($"Le client n'a accès qu'aux fonctions de Depot(), Retrait() et son Solde ({client_sam.Solde})");
+            client_sam.Retrait(500);
+            Console.WriteLine($"Le client n'a accès qu'aux fonctions de Depot(), Retrait() et son Solde ({client_sam.Solde})");
 
+            IBanker banquier_sam = e1_sam;
+            Console.WriteLine($"Le Banquier a accès aux fonctions de Depot(), Retrait() et son Solde ({banquier_sam.Solde}) comme le client...");
+            Console.WriteLine($"Mais aussi aux informations du titulaire ({banquier_sam.Titulaire.Nom}) et du Numéro de compte ({banquier_sam.Numero})");
+            banquier_sam.AppliquerInteret();
+            Console.WriteLine($"Le banquier peut aussi appliquer les intérêts (le solde a changé : {banquier_sam.Solde})");
 
+            try
+            {
+                //c2_bruce.Depot(-50000);
+                //c2_bruce.Retrait(1000000000);
+                Courant c2_sam = new Courant("BE84 6542 6547 2589", titulaire1, 0, -10);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (SoldeInsuffisantException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            c1_sam.Retrait(c1_sam.Solde + 1);
         }
     }
 }

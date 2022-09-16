@@ -20,17 +20,35 @@ namespace ExoBancaire
                 return _ligneDeCredit;  
             }
 
-            set
+            private set
             {
-                if (value >= 0 && value >= -Solde) _ligneDeCredit = value;
+                //if (value >= 0 && value >= -Solde)
+                if (value < 0 && value < -Solde)
+                    throw new InvalidOperationException($"La valeur de la ligne de crédit {value} est inférieure à 0.");
+                _ligneDeCredit = value;
             }
+        }
+        #endregion
+
+        #region Constructeur
+        public Courant(string numero, Personne titulaire) : base (numero, titulaire) { }
+
+        public Courant(string numero, Personne titulaire, double solde, double ligneDeCredit) : base (numero, titulaire, solde)
+        {
+            LigneDeCredit = ligneDeCredit;
         }
         #endregion
 
         #region Méthodes
         public override void Retrait(double montant)
         {
+            double ancienSolde = Solde;
             base.Retrait(montant, LigneDeCredit);
+            if (ancienSolde >= 0 && Solde < 0)
+            {
+                ActiverPassageEnNegatif(this);
+            }
+
         }
 
         protected override double CalculInteret()

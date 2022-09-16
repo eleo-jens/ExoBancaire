@@ -22,32 +22,36 @@ namespace ExoBancaire
         public string Nom
         {
             get { return _nom; }
-            set
+            private set
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    _nom = value.Trim(); //retirer les espaces blancs du début et de la fin
-                }
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException($"Le nom ne peut contenir des espaces blancs ou être null... : {value}");
+                _nom = value.Trim(); //retirer les espaces blancs du début et de la fin
             }
         }
+
 
         public string Prenom
         {
             get { return _prenom; }
-            set
+            private set
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    _prenom = value.Trim(); //retirer les espaces blancs du début et de la fin
-                }
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException($"Le nom ne peut contenir des espaces blancs ou être null...: {value}");
+                _prenom = value.Trim(); //retirer les espaces blancs du début et de la fin
             }
         }
         
-        public DateTime DateNaissance { get; set; }
+        public DateTime DateNaissance { get; private set; }
         #endregion
 
         #region Constructeurs & destructeurs
-
+        public Personne(string nom, string prenom, DateTime dateNaissance)
+        {
+            Nom = nom;
+            Prenom = prenom;
+            DateNaissance = dateNaissance;
+        }
         #endregion
 
         #region Méthodes & opérateurs
